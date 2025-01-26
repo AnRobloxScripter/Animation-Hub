@@ -22,10 +22,12 @@ TextBox.Size = UDim2.new(0.7, 0, 0.1, 0)
 TextBox.Position = UDim2.new(0.15, 0, 0, 0)
 -- Tool System
 tool.Equipped:Connect(function()
-if cooldown = false then
-cooldown = true
 tool.Parent = game:GetService("Players")LocalPlayer.Backpack
-
+if cooldown == false then
+cooldown = true
+PlayAnimation(Text)
+wait(1)
+cooldown = false
 end
 end)
 
