@@ -1,0 +1,6 @@
+local anim = Instance.new("Animation")
+local function playanimation(animid)
+local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+anim.AnimationId = animid
+humanoid:LoadAnimation(anim):Play()
+end
