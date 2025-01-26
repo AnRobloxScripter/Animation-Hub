@@ -1,6 +1,3 @@
-local function Add(Instance)
-Instance.Parent = game:GetService("Players").LocalPlayer.PlayerGui.AnimGui
-end
 local function PlayAnimation(animid)
 local anim = Instance.new("Animation")
 local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
@@ -10,8 +7,15 @@ end
 -- Tool Setup
 local tool = Instance.new("Tool")
 tool.RequiresHandle = false
-tool.Name = "Animation Player"
+tool.Name = "Play Animation"
 -- ScreenGui Setup
 local GUI = Instance.new("ScreenGui")
+GUI.Name = "AnimUi"
+GUI.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+-- TextBox Setup
+local TextBox = Instance.new("TextBox")
+TextBox.Parent = GUI
+TextBox.Size = UDim2.new(0.7, 0, 0.1, 0)
+TextBox.Position = UDim2.new(100, 0, 10, 0)
 
-GUI.Parent = game:
+
