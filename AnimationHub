@@ -1,6 +1,17 @@
+local function Add(Instance)
+Instance.Parent = game:GetService("Players").LocalPlayer.PlayerGui.AnimGui
+end
+local function PlayAnimation(animid)
 local anim = Instance.new("Animation")
-local function playanimation(animid)
 local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
 anim.AnimationId = animid
 humanoid:LoadAnimation(anim):Play()
 end
+-- Tool Setup
+local tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Animation Player"
+-- ScreenGui Setup
+local GUI = Instance.new("ScreenGui")
+
+GUI.Parent = game:
