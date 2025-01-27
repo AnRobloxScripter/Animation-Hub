@@ -22,6 +22,7 @@ TextBox.Position = UDim2.new(0.15, 0, 0, 0)
 TextBox.PlaceholderText = "Animation Id Here"
 -- Tool System
 tool.Equipped:Connect(function()
+wait(0.1)
 tool.Parent = game:GetService("Players").LocalPlayer.Backpack
 if cooldown == false then
 cooldown = true
