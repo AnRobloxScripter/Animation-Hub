@@ -1,3 +1,4 @@
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
 local cooldown = false
 local function PlayAnimation(animid)
 local anim = Instance.new("Animation")
@@ -31,5 +32,6 @@ TextBox.Text = ""
 wait(1)
 cooldown = false
 end
+end)
 end)
 
