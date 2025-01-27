@@ -2,7 +2,7 @@ local cooldown = false
 local function PlayAnimation(animid)
 local anim = Instance.new("Animation")
 local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
-anim.AnimationId = animid
+anim.AnimationId = "rbxassetid://"..animid
 humanoid:LoadAnimation(anim):Play()
 end
 -- Tool Setup
