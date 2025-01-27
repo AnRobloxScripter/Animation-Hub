@@ -1,71 +1,114 @@
-local cooldown = false
-local function PlayAnimation(animid)
-local anim = Instance.new("Animation")
-local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
-anim.AnimationId = "rbxassetid://"..animid
-humanoid:LoadAnimation(anim):Play()
-end
--- Tool Setup
-local tool = Instance.new("Tool")
-tool.Parent = game:GetService("Players").LocalPlayer.Backpack
-tool.RequiresHandle = false
-tool.Name = "Play Animation"
--- ScreenGui Setup
-local GUI = Instance.new("ScreenGui")
-GUI.Name = "AnimUi"
-GUI.Parent = game:GetService("Players").LocalPlayer.PlayerGui
--- TextBox Setup
-local TextBox = Instance.new("TextBox")
-TextBox.Parent = GUI
-TextBox.Size = UDim2.new(0.7, 0, 0.1, 0)
-TextBox.Position = UDim2.new(0.15, 0, 0, 0)
-TextBox.PlaceholderText = "Animation Id Here"
--- Tool System
-tool.Equipped:Connect(function()
-wait(0.1)
-tool.Parent = game:GetService("Players").LocalPlayer.Backpack
-if cooldown == false then
-cooldown = true
-PlayAnimation(TextBox.Text)
-TextBox.Text = ""
-wait(1)
-cooldown = false
-end
-end)
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
-local cooldown = false
-local function PlayAnimation(animid)
-local anim = Instance.new("Animation")
-local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
-anim.AnimationId = "rbxassetid://"..animid
-humanoid:LoadAnimation(anim):Play()
-end
--- Tool Setup
-local tool = Instance.new("Tool")
-tool.Parent = game:GetService("Players").LocalPlayer.Backpack
-tool.RequiresHandle = false
-tool.Name = "Play Animation"
--- ScreenGui Setup
-local GUI = Instance.new("ScreenGui")
-GUI.Name = "AnimUi"
-GUI.Parent = game:GetService("Players").LocalPlayer.PlayerGui
--- TextBox Setup
-local TextBox = Instance.new("TextBox")
-TextBox.Parent = GUI
-TextBox.Size = UDim2.new(0.7, 0, 0.1, 0)
-TextBox.Position = UDim2.new(0.15, 0, 0, 0)
-TextBox.PlaceholderText = "Animation Id Here"
--- Tool System
-tool.Equipped:Connect(function()
-wait(0.1)
-tool.Parent = game:GetService("Players").LocalPlayer.Backpack
-if cooldown == false then
-cooldown = true
-PlayAnimation(TextBox.Text)
-TextBox.Text = ""
-wait(1)
-cooldown = false
-end
-end)
-end)
+local AnimGui = Instance.new("ScreenGui")
+AnimGui.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+AnimGui.Name = "AnimGui"
+AnimGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+local AnimationPlayer = Instance.new("CanvasGroup")
+AnimationPlayer.Name = "AnimationPlayer"
+AnimationPlayer.Size = UDim2.new(0.5, 0, 0.2505415, 0)
+AnimationPlayer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AnimationPlayer.Position = UDim2.new(0.2497551, 0, 0.032491, 0)
+AnimationPlayer.BorderSizePixel = 0
+AnimationPlayer.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+AnimationPlayer.Parent = AnimGui
+
+local AnimID = Instance.new("TextBox")
+AnimID.Name = "AnimID"
+AnimID.Size = UDim2.new(0.9490695, 0, 0.405903, 0)
+AnimID.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AnimID.Position = UDim2.new(0.0254652, 0, 0.0980035, 0)
+AnimID.BorderSizePixel = 0
+AnimID.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+AnimID.FontSize = Enum.FontSize.Size48
+AnimID.TextWrapped = true
+AnimID.PlaceholderColor3 = Color3.fromRGB(47, 47, 47)
+AnimID.TextWrap = true
+AnimID.TextSize = 40
+AnimID.TextColor3 = Color3.fromRGB(255, 255, 255)
+AnimID.PlaceholderText = "AnimationID"
+AnimID.Text = ""
+AnimID.CursorPosition = -1
+AnimID.Font = Enum.Font.Cartoon
+AnimID.Parent = AnimationPlayer
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 18)
+UICorner.Parent = AnimID
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Thickness = 2
+UIStroke.Parent = AnimID
+
+local CanvasCorner = Instance.new("UICorner")
+CanvasCorner.Name = "CanvasCorner"
+CanvasCorner.CornerRadius = UDim.new(0, 15)
+CanvasCorner.Parent = AnimationPlayer
+
+local StopAnim = Instance.new("TextButton")
+StopAnim.Name = "StopAnim"
+StopAnim.Size = UDim2.new(0.4577363, 0, 0.3, 0)
+StopAnim.BorderColor3 = Color3.fromRGB(0, 0, 0)
+StopAnim.Position = UDim2.new(0.5167984, 0, 0.5903619, 0)
+StopAnim.BorderSizePixel = 0
+StopAnim.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+StopAnim.FontSize = Enum.FontSize.Size36
+StopAnim.TextSize = 35
+StopAnim.TextColor3 = Color3.fromRGB(162, 0, 3)
+StopAnim.Text = "Stop"
+StopAnim.Font = Enum.Font.Cartoon
+StopAnim.Parent = AnimationPlayer
+
+local UICorner1 = Instance.new("UICorner")
+UICorner1.CornerRadius = UDim.new(0, 15)
+UICorner1.Parent = StopAnim
+
+local UIStroke1 = Instance.new("UIStroke")
+UIStroke1.Thickness = 2
+UIStroke1.Parent = StopAnim
+
+local PlayAnim = Instance.new("TextButton")
+PlayAnim.Name = "PlayAnim"
+PlayAnim.Size = UDim2.new(0.4577364, 0, 0.3, 0)
+PlayAnim.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayAnim.Position = UDim2.new(0.0254652, 0, 0.5903619, 0)
+PlayAnim.BorderSizePixel = 0
+PlayAnim.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+PlayAnim.FontSize = Enum.FontSize.Size36
+PlayAnim.TextSize = 35
+PlayAnim.TextColor3 = Color3.fromRGB(65, 145, 0)
+PlayAnim.Text = "Play"
+PlayAnim.Font = Enum.Font.Cartoon
+PlayAnim.Parent = AnimationPlayer
+
+local UICorner2 = Instance.new("UICorner")
+UICorner2.CornerRadius = UDim.new(0, 15)
+UICorner2.Parent = PlayAnim
+
+local UIStroke2 = Instance.new("UIStroke")
+UIStroke2.Thickness = 2
+UIStroke2.Parent = PlayAnim
+
+local CanvasStroke = Instance.new("UIStroke")
+CanvasStroke.Name = "CanvasStroke"
+CanvasStroke.Thickness = 5
+CanvasStroke.Color = Color3.fromRGB(26, 26, 26)
+CanvasStroke.Parent = AnimationPlayer
+
+local function PlayAnimation(animid)
+	local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+	local Animation = Instance.new("Animation")
+	Animation.AnimationId = "rbxassetid://"..animid
+	humanoid:LoadAnimation(Animation):Play()
+end
+local function StopAllAnimations()
+	local humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+	for i, v in pairs(humanoid:GetPlayingAnimationTracks()) do
+		v:Stop()
+	end
+end
+PlayAnim.Activated:Connect(function()
+	PlayAnimation(AnimID.Text)
+end)
+StopAnim.Activated:Connect(function()
+	StopAllAnimations()
+end)
