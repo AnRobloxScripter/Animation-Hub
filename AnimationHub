@@ -7,7 +7,7 @@ humanoid:LoadAnimation(anim):Play()
 end
 -- Tool Setup
 local tool = Instance.new("Tool")
-tool.Parent = game:GetService("Players")LocalPlayer.Backpack
+tool.Parent = game:GetService("Players").LocalPlayer.Backpack
 tool.RequiresHandle = false
 tool.Name = "Play Animation"
 -- ScreenGui Setup
